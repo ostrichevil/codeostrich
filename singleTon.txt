@@ -1,0 +1,39 @@
+/／线程不安全
+public class SingleTon
+{
+   private SingleTon(){}
+   private static SingleTon instance;
+   public static SingleTon getInstance()
+   {
+	if(instance==null)
+	{
+	   instance = new SingleTon();
+		}
+	return instance;
+	}
+}
+
+//懒汉，线程安全
+public class SingleTon
+{
+    private SingleTon(){}
+    public static SingleTon instance;
+    public static synchronized SingleTon getInstance()
+    {
+	if(instance==null)
+	{
+	    instance=new SingleTon();	
+	}
+	return instance;
+    }
+}
+//饿汉
+public class SingleTon
+{
+    private SinleTon(){}
+    private static SingleTon instance =new SigleTon();
+    public static SingleTon getInstance()
+    {
+	return instance;
+    }
+}
